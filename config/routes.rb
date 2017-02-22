@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'homes/index'
+
+  get 'homes/contact'
+
   get '/payments', to: 'payments#index'
 
   		resources :payments do
