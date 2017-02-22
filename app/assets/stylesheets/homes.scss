@@ -5,17 +5,10 @@ body, html {
     height: 100%;
 }
 
-.jumbotron {
-    /* The image used */
-    background-image: url("woods.jpg");
+#sponsor {
+  margin-bottom: auto;
+  
 
-    /* Full height */
-    height: 75%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .red{
     color:red;
@@ -28,3 +21,21 @@ body, html {
 	border: 1px solid GREY;
 
 	}
+.wrapper{
+  margin: auto;
+
+}
+.footer{
+  margin: auto;
+}
+.container-fluid{
+  text-align: center;
+}
+.bot_dropdown {
+  display: inline-block;
+
+}
+.sponsors {
+  display: inline-block;
+
+}
