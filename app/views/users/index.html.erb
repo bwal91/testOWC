@@ -1,0 +1,100 @@
+<%= flash[:notice] %>
+
+<table>
+	<thead>
+	<tr>
+		<th>Batch</th>
+		<th>Form?</th>
+		<th>Status</th>
+		<th>user#</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Password</th>
+		<th>Admin</th>
+		<th>Address1</th>
+		<th>Address2</th>
+		<th>Address3</th>
+		<th>Post Code</th>
+		<th>City</th>
+		<th>Area</th>
+		<th>Home#</th>
+		<th>Mobile#</th>
+		<th>Nationality</th>
+		<th>Email</th>
+		<th>Emailers?</th>
+		<th>Hard Mail?</th>
+		<th>Working?</th>
+		<th>Company</th>
+		<th>Volunteer?</th>
+		<th>Computer Skills?</th>
+		<th>Finance Skills?</th>
+		<th>user Skills?</th>
+		<th>Interview?</th>
+		<th>Other Skills?</th>
+		<th>Partner?</th>
+		<th>Partner First Name</th>
+		<th>Partner Last Name</th>
+		<th>Partner Company</th>
+		<th>Birthday</th>
+		<th>Language</th>
+		<th>Gender</th>
+		<th>Join Date</th>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.batch  %></td>
+		<td><%= user.form_completed  %></td>
+		<td><%= user.status  %></td>
+		<td><%= user.memb  %></td>
+		<td><%= user.first_name  %></td>
+		<td><%= user.last_name  %></td>
+		<td><%= user.password_digest %></td>
+		<td><%= user.admin %></td>
+		<td><%= user.address1  %></td>
+		<td><%= user.address2  %></td>
+		<td><%= user.address3  %></td>
+		<td><%= user.post_code  %></td>
+		<td><%= user.city  %></td>
+		<td><%= user.area  %></td>
+		<td><%= user.home  %></td>
+		<td><%= user.mobile  %></td>
+		<td><%= user.nationality  %></td>
+		<td><%= user.email  %></td>
+		<td><%= user.emailers  %></td>
+		<td><%= user.hardmail  %></td>
+		<td><%= user.working  %></td>
+		<td><%= user.company  %></td>
+		<td><%= user.volunteer  %></td>
+		<td><%= user.computer_skills  %></td>
+		<td><%= user.skills_finance  %></td>
+		<td><%= user.skills_eventmgmt  %></td>
+		<td><%= user.interview  %></td>
+		<td><%= user.other_skills  %></td>
+		<td><%= user.partner  %></td>
+		<td><%= user.partner_first_name  %></td>
+		<td><%= user.partner_last_name  %></td>
+		<td><%= user.partner_company  %></td>
+		<td><%= user.dob  %></td>
+		<td><%= user.language  %></td>
+		<td><%= user.gender  %></td>
+		<td><%= user.join_date  %></td>
+	</tr>
+	<% end %>
+	</thead>
+</table>
+<div>
+	<h4>Import that data!</h4>
+	<%= form_tag import_users_path, multipart: true do %>
+		<%= file_field_tag :file %>
+		<%= submit_tag "Import CSV" %>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+
