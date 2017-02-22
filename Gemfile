@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'mail_form'
 # On console Hirb.enable
 gem 'hirb'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -33,6 +34,27 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+
+gem 'devise'
+
+gem 'childprocess', '~> 0.5'
+
+gem 'rubyzip', '~> 1.0'
+
+gem 'websocket', '~> 1.0'
+
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+
+gem 'haml-rails'
+gem 'simple_form'
+gem 'autoprefixer-rails'
+gem 'mailboxer'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
