@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   get '/mission_statement', to: 'homes#mission_statement'
   get '/journey', to: 'homes#journey'
   get '/contact', to: 'homes#contact'
-  post '/contact_form', to: 'homes#contact'
-  
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
   get '/payments', to: 'payments#index'
   		resources :payments do
 		collection {post :import}
