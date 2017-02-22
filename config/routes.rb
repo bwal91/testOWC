@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-
-	root "users#index"
-
-  	get '/payments', to: 'payments#index'
-	
-	get '/chatroom', to: 'chat_rooms#show'
-
-	resources :payments do
-=======
   get '/', to: 'homes#index' # Home page
   get '/back', to: 'homes#index' # Back button option
   post '/login', to: 'homes#login'
@@ -35,21 +25,13 @@ Rails.application.routes.draw do
 
   get '/payments', to: 'payments#index'
   		resources :payments do
->>>>>>> origin/master
 		collection {post :import}
 	end
-	resources :users do
+		resources :members do
 		collection {post :import}
 	end
 
-	resources :messages
-	resources :conversations
-
-  	resources :chat_rooms, only: [:new, :create, :show, :index]
-
-  	mount ActionCable.server => '/cable'
-
-
+	root to: "members#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
