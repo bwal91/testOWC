@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222210032) do
+ActiveRecord::Schema.define(version: 20170221222620) do
+
+  create_table "Members", force: :cascade do |t|
+    t.integer  "batch"
+    t.string   "form_completed"
+    t.string   "status"
+    t.integer  "memb"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_digest"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "post_code"
+    t.string   "city"
+    t.string   "area"
+    t.string   "home"
+    t.string   "mobile"
+    t.string   "nationality"
+    t.string   "email"
+    t.string   "emailers"
+    t.string   "hardmail"
+    t.string   "working"
+    t.string   "company"
+    t.string   "volunteer"
+    t.string   "computer_skills"
+    t.string   "skills_finance"
+    t.string   "skills_eventmgmt"
+    t.string   "interview"
+    t.string   "other_skills"
+    t.string   "partner"
+    t.string   "partner_first_name"
+    t.string   "partner_last_name"
+    t.string   "partner_company"
+    t.string   "dob"
+    t.string   "language"
+    t.string   "gender"
+    t.string   "join_date"
+    t.integer  "admin"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "member"
+  end
 
   create_table "Payments", force: :cascade do |t|
     t.string   "date_payment"
@@ -28,96 +70,6 @@ ActiveRecord::Schema.define(version: 20170222210032) do
     t.string   "comments"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-  end
-
-  create_table "Users", force: :cascade do |t|
-    t.string   "status"
-    t.integer  "memb"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "password_digest"
-    t.string   "nationality"
-    t.string   "email"
-    t.string   "emailers"
-    t.string   "dob"
-    t.string   "language"
-    t.string   "gender"
-    t.string   "join_date"
-    t.integer  "admin"
-    t.string   "member"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "chat_messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "member_id"
-    t.integer  "chat_room_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
-    t.index ["member_id"], name: "index_chat_messages_on_member_id"
-  end
-
-  create_table "chat_rooms", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["member_id"], name: "index_chat_rooms_on_member_id"
-  end
-
-  create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
-    t.string  "unsubscriber_type"
-    t.integer "unsubscriber_id"
-    t.integer "conversation_id"
-    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
-    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
-  end
-
-  create_table "mailboxer_conversations", force: :cascade do |t|
-    t.string   "subject",    default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  create_table "mailboxer_notifications", force: :cascade do |t|
-    t.string   "type"
-    t.text     "body"
-    t.string   "subject",              default: ""
-    t.string   "sender_type"
-    t.integer  "sender_id"
-    t.integer  "conversation_id"
-    t.boolean  "draft",                default: false
-    t.string   "notification_code"
-    t.string   "notified_object_type"
-    t.integer  "notified_object_id"
-    t.string   "attachment"
-    t.datetime "updated_at",                           null: false
-    t.datetime "created_at",                           null: false
-    t.boolean  "global",               default: false
-    t.datetime "expires"
-    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
-    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
-    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
-    t.index ["type"], name: "index_mailboxer_notifications_on_type"
-  end
-
-  create_table "mailboxer_receipts", force: :cascade do |t|
-    t.string   "receiver_type"
-    t.integer  "receiver_id"
-    t.integer  "notification_id",                            null: false
-    t.boolean  "is_read",                    default: false
-    t.boolean  "trashed",                    default: false
-    t.boolean  "deleted",                    default: false
-    t.string   "mailbox_type",    limit: 25
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.boolean  "is_delivered",               default: false
-    t.string   "delivery_method"
-    t.string   "message_id"
-    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
-    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
 end

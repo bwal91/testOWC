@@ -22,6 +22,10 @@ class HomesController < ApplicationController
   end
   def renew
   end
+  def publication
+  end
+  def volunteer
+  end
   # Our Work dropdown navigation bar
   def charities
   end

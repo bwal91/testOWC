@@ -10,29 +10,37 @@ Rails.application.routes.draw do
   get '/member_info', to: 'homes#member_info'
   get '/new_member', to: 'homes#new_member' # New Memeber Info, Benefits, etc.
   get '/renew', to: 'homes#renew' # Renew membership here
+  get '/publication', to: 'homes#publication'
+  get '/volunteer', to: 'homes#volunteer'
   # Our Work dropdown navigation bar
   # get '/charities', to: 'homes#charities'
   get '/contributions', to: 'homes#contributions'
   get '/fundraising', to: 'homes#fundraising'
   get '/ssg', to: 'homes#ssg' # Social Support Group
+  # Members Only dropdown navigation bar
+  get '/chat_room', to: 'chat_rooms#index'
+  get '/calendar', to: 'calendars#index'
+  get '/board_members', to: 'users#board_members'
+  # get '/payments/'
+  # get '/admin/'
   # About options bottom of page
   get '/owc_club_info', to: 'homes#owc_club_info'
   get '/mission_statement', to: 'homes#mission_statement'
   get '/journey', to: 'homes#journey'
+  # Contact Us bottom of page
   get '/contact', to: 'homes#contact'
-  match '/contacts', to: 'contacts#new', via: 'get'
-  resources "contacts", only: [:new, :create]
+  # match '/contacts', to: 'contacts#new', via: 'get'
+  # resources "contacts", only: [:new, :create]
 
   get '/payments', to: 'payments#index'
   		resources :payments do
 		collection {post :import}
 	end
-  
-	get '/import', to: 'users#index'
+
   resources :users do
   collection {post :import}
   end
-
+  get '/import', to: 'users#index'
   # resources :messages
   # resources :conversations, only: [:index, :show, :destroy]
 
@@ -53,7 +61,6 @@ Rails.application.routes.draw do
       post :untrash
     end
   end
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
