@@ -1,67 +1,91 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="homes.css">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="jquery.easy-autocomplete.min.js"></script> 
-    <link rel="stylesheet" href="easy-autocomplete.min.css"> 
-    <link rel="stylesheet" href="easy-autocomplete.themes.min.css"> 
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <div class="footer">
-        <footer>
-          <h1>OWC Bangalore</h1>
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li class="active"><a href="/">Home <span class="sr-only"></span></a></li>
-                  <!-- <li><a href="/bangalore">Bangalore</a></li> -->
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                    aria-haspopup="true" aria-expanded="false">Bangalore <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/moving_to">Moving to Bangalore</a></li>
-                      <li><a href="/what_to_do">What to do</a></li>
-                      <li><a href="/life_in">Life in Bangalore</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                    aria-haspopup="true" aria-expanded="false">Membership <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/member_info">Information</a></li>
-                      <li><a href="/new_member">New Members</a></li>
-                      <li><a href="/renew">Renew Membership</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                    aria-haspopup="true" aria-expanded="false">Our Work<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/charities">Charities</a></li>
-                      <li><a href="/contributions">Contributions</a></li>
-                      <li><a href="/fundraising">Fundraising</a></li>
-                      <li><a href="/ssg">Social Support Group</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                  </div>
-                  <button type="submit" class="btn btn-default">Search</button>
-                </form>
-                <button type="button" class="btn btn-default navbar-btn" action="/login">Login</button>
-                <% if current_user %>
-                <ul class="nav navbar-nav pull-right">
-                  <li><%= link_to "Hello, #{current_user.first_name}", "#" %></li>
-                  <li><%= link_to "Inbox", messages_inbox_path %></li>
-                <% end %>
-              </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-          </nav>
-        </footer>
-      </div>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="homes.scss">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <header>
+        <h1>OWC Bangalore</h1>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <!-- Home -->
+                <li class="active"><a href="/">Home <span class="sr-only"></span></a></li>
+                <!-- Bangalore -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup="true" aria-expanded="false">Bangalore <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/moving_to">Moving to Bangalore</a></li>
+                    <li><a href="/what_to_do">What to do</a></li>
+                    <li><a href="/life_in">Life in Bangalore</a></li>
+                  </ul>
+                </li>
+                 <!-- Membership -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup="true" aria-expanded="false">Membership <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/member_info">Information</a></li>
+                    <li><a href="/new_member">New Members</a></li>
+                    <li><a href="/renew">Renew Membership</a></li>
+                    <li><a href="/publication">Publication</a></li>
+                    <li><a href="/volunteer">Volunteer Opportunity</a></li>
+                  </ul>
+                </li>
+                 <!-- Our Work -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup="true" aria-expanded="false">Our Work<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/charities">Charities</a></li>
+                    <li><a href="/contributions">Contributions</a></li>
+                    <li><a href="/fundraising">Fundraising</a></li>
+                    <li><a href="/ssg">Social Support Group</a></li>
+                  </ul>
+                </li>
+                <!-- Member Only  -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                  aria-haspopup="true" aria-expanded="false">Members Only<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/chat_room">Chat Room</a></li>
+                    <li><a href="/calendar">Calendar</a></li>
+                    <li><a href="/board_members">Board Members Contacts</a></li>
+                    <li><a href="/payments">Payments</a></li>
+                    <li><a href="/admin">Administrator Page</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form>
+              <!-- Login -->
+              <button type="button" class="btn btn-default navbar-btn" action="/login">Login</button>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </header>
+    </div>
