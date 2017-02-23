@@ -4,7 +4,8 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="homes.scss">
+    <link href="/assets/bootstrap.min.css" media="all" rel="stylesheet" />
+    <link rel="stylesheet" href="homes.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,17 +92,54 @@
             </div><!-- /.container-fluid -->
           </nav>
         </header>
-      </div>    
+      </div>
       <!-- Picture Caroursel -->
       <div class="jumbotron">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
 
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="/assets/bangalore1.jpg" alt="bangalore">
+            </div>
+
+            <div class="item">
+              <img src="/assets/bangalore2.jpg" alt="bangalore">
+            </div>
+
+            <div class="item">
+              <img src="/assets/bangalore3.jpg" alt="Bangalore">
+            </div>
+
+            <div class="item">
+              <img src="/assets/bangalore4.jpg" alt="Bangalore">
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
       <!-- Sponsor Labels -->
       <div id="sponsor">
         <div class="container">
           <div class = "col-sm-6 col-md-3">
             <div id= "thumbnail1">
-               <img src = "/forest1.jpg" class="img-thumbnail1" alt = "Generic placeholder thumbnail">
+               <img src = "/assets/forest1.jpg" alt = "Generic placeholder thumbnail">
             </div>
             <div class = "caption">
                <h3>Sponsor Name</h3>
@@ -115,7 +153,7 @@
          </div>
          <div class = "col-sm-6 col-md-3">
            <div class = "thumbnail2">
-              <img src = "/bootstrap/images/kittens.jpg" alt = "Generic placeholder thumbnail">
+              <img src = "/assets/forest2.jpg" alt = "Generic placeholder thumbnail">
            </div>
            <div class = "caption">
               <h3>Sponsor Name</h3>
@@ -129,7 +167,7 @@
          </div>
          <div class = "col-sm-6 col-md-3">
            <div class = "thumbnail3">
-              <img src = "/bootstrap/images/kittens.jpg" alt = "Generic placeholder thumbnail">
+              <img src = "/assets/forest3.jpg" alt = "Generic placeholder thumbnail">
            </div>
            <div class = "caption">
               <h3>Sponsor Name</h3>
@@ -143,7 +181,7 @@
          </div>
          <div class = "col-sm-6 col-md-3">
            <div class = "thumbnail4">
-              <img src = "/bootstrap/images/kittens.jpg" alt = "Generic placeholder thumbnail">
+              <img src = "/assets/forest4.jpg" alt = "Generic placeholder thumbnail">
            </div>
            <div class = "caption">
               <h3>Sponsor Name</h3>
@@ -201,13 +239,10 @@
         </nav>
       </footer>
     </div>
-
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
