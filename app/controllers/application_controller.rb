@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 		# @current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
 		helper_method :current_user
+		helper_method :mailbox
 		
 
 	def authorize
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
 		unless current_user
 			flash[:notice] = "You must be logged in to continue!"
 			redirect_to '/'
-	end
-  end
+		end
+  	end
+
+  	def mailbox
+  		@mailbox ||= current_user.mailbox
+  	end
 end

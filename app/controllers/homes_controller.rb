@@ -1,6 +1,8 @@
 class HomesController < ApplicationController
   # Home Page
   def index
+    @me = User.find(75)
+    session[:user_id] = @me.id
   end
   def contact
   end
