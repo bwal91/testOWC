@@ -1,7 +1,9 @@
+
+
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
       <%= f.label :recipients %>
-      <%= f.select(:recipients, User.all.collect {|p| [ p.first_name, p.id ] }, {}, { multiple: true , class: "form-control" })%>
+      <%= f.autocomplete_field :recipients_first_name_last_name,  autocomplete_recipients_name_conversations_path, 'data-delimiter'=> ' ', :multiple => true, 'data-auto-focus' => true,  class: "form-control"%>
     </div>
     <div class="form-group">
       <%= f.label :subject %>

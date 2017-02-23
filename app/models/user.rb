@@ -13,17 +13,29 @@ class User < ApplicationRecord
 		self.email
 	end
 	
-
-	require 'csv'
-
-	def self.import(file)
-
-		CSV.foreach(file.path, {col_sep: ',', headers: true}) do |row|
-			
-			User.create! row.to_hash
-
-		end
+	# def self.search(term)
+	# 	params[:term].downcase!
+	# 	where("lower(first_name) LIKE '#{:term}' or lower(last_name) LIKE '#{:term}'")
+	# end
+	def recipients
+		recipient.try(:name)
 	end
+
+	def recipients=(term)
+		self.recipient = User.where("lower(first_name) LIKE '#{:term}' or lower(last_name) LIKE '#{:term}'")
+	end
+
+
+	# require 'csv'
+
+	# def self.import(file)
+
+	# 	CSV.foreach(file.path, {col_sep: ',', headers: true}) do |row|
+			
+	# 		User.create! row.to_hash
+
+	# 	end
+	# end
 
 
 	

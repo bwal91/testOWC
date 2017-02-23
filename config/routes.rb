@@ -37,10 +37,11 @@ Rails.application.routes.draw do
 		collection {post :import}
 	end
 
-  resources :users do
-  collection {post :import}
-  end
-  get '/import', to: 'users#index'
+  # resources :users do
+  #   get :autocomplete_:recipients_:first_name,:last_name, :on => :collection
+  # end
+  # get '/import', to: 'users#index'
+  get '/autofill', to: 'users#index'
   # resources :messages
   # resources :conversations, only: [:index, :show, :destroy]
 
@@ -55,12 +56,15 @@ Rails.application.routes.draw do
 
   #Mailbox Conversations
   resources :conversations do
+    get :autocomplete_recipients_name, :on => :collection
     member do
       post :reply
       post :trash
       post :untrash
     end
   end
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

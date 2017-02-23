@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'wdm', '>= 0.1.0'
+# gem 'wdm', '>= 0.1.0'
 
 gem 'mail_form'
 # On console Hirb.enable
@@ -55,6 +55,9 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'mailboxer'
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'
+
 
 
 # Use Capistrano for deployment
