@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/new_member', to: 'homes#new_member' # New Memeber Info, Benefits, etc.
   get '/renew', to: 'homes#renew' # Renew membership here
   # Our Work dropdown navigation bar
-  get '/charities', to: 'homes#charities'
+  # get '/charities', to: 'homes#charities'
   get '/contributions', to: 'homes#contributions'
   get '/fundraising', to: 'homes#fundraising'
   get '/ssg', to: 'homes#ssg' # Social Support Group
@@ -32,12 +32,17 @@ Rails.application.routes.draw do
   collection {post :import}
   end
 
-  resources :messages
-  resources :conversations
+  # resources :messages
+  # resources :conversations, only: [:index, :show, :destroy]
 
   resources :chat_rooms, only: [:new, :create, :show, :index]
 
   mount ActionCable.server => '/cable'
+
+  # Mailbox Folder Routes
+  get "/mailbox/inbox" => "messages#inbox", as: :messages_inbox
+  get "/mailbox/sent" => "messages#sent", as: :messages_sent
+  get "/mailbox/trash" => "messages#trash", as: :messages_trash
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
