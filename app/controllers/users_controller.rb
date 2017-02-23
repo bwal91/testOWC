@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   	@users = User.all
   end
 
-  # def import
-  # 	User.import(params[:file])
+  def import
+  	User.import(params[:file])
 
-  # 	redirect_to root_url, notice: "User Data imported"
-  # end
+  	redirect_to root_url, notice: "User Data imported"
+  end
 
 
 end

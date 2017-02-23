@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   		resources :payments do
 		collection {post :import}
 	end
-		
+  
+	get '/import', to: 'users#index'
   resources :users do
   collection {post :import}
   end
@@ -43,6 +44,16 @@ Rails.application.routes.draw do
   get "/mailbox/inbox" => "messages#inbox", as: :messages_inbox
   get "/mailbox/sent" => "messages#sent", as: :messages_sent
   get "/mailbox/trash" => "messages#trash", as: :messages_trash
+
+  #Mailbox Conversations
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

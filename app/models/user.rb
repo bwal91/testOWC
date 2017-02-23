@@ -14,16 +14,16 @@ class User < ApplicationRecord
 	end
 	
 
-	# require 'csv'
+	require 'csv'
 
-	# def self.import(file)
+	def self.import(file)
 
-	# 	CSV.foreach(file.path, {col_sep: ',', headers: true}) do |row|
+		CSV.foreach(file.path, {col_sep: ',', headers: true}) do |row|
 			
-	# 		User.create! row.to_hash
+			User.create! row.to_hash
 
-	# 	end
-	# end
+		end
+	end
 
 
 	
