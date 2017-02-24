@@ -5,16 +5,12 @@
   margin: auto;
   width: auto;
 }
-
 body, html {
     height: 100%;
     color: black;
 }
-
 #sponsor {
   margin-bottom: auto;
-
-
 }
 .red{
     color:red;
@@ -22,6 +18,7 @@ body, html {
 .form-area
 {
   background-color: #97c53b;
+<<<<<<< HEAD
 	padding: 10px 40px 60px;
 	margin: 10px 0px 60px;
 	border: 1px solid GREY;
@@ -36,6 +33,19 @@ body, html {
 
    padding:10px;
 }
+=======
+    padding: 10px 40px 60px;
+    margin: 10px 0px 60px;
+    border: 1px solid GREY;
+    }
+.wrapper{
+  min-height:100%;
+  position:relative;
+}
+#header {
+   padding:10px;
+}
+>>>>>>> 41e9a9298b346e4dcb7c0acd5d4c00625ddf9d29
 #footer{
   position: relative;
   margin-top: -180px; /* negative value of footer height */
@@ -48,7 +58,6 @@ body, html {
 }
 .bot_dropdown {
   display: inline-block;
-
 }
 .sponsor {
   display: inline-block;
@@ -59,9 +68,7 @@ body, html {
 .container-fluid{
   background-color: #97c53b;
   color: white;
-
 }
-
 #myCarousel{
   background-color: white;
 }

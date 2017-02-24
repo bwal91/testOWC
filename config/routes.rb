@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get '/', to: 'homes#index' # Home page
   get '/back', to: 'homes#index' # Back button option
+<<<<<<< HEAD
   post '/login', to: 'homes#login'
+=======
+  # post '/login', to: 'homes#login'
+>>>>>>> 41e9a9298b346e4dcb7c0acd5d4c00625ddf9d29
   # Bangalore dropdown navigation bar
   get '/moving_to', to: 'homes#moving_to'
   # Moving to Bangalore Links
@@ -18,12 +22,19 @@ Rails.application.routes.draw do
   # Bangalore dropdown nav bar
   get '/life_in', to: 'homes#life_in'
     # Start
+<<<<<<< HEAD
   get '/pests', to: 'homes#pests'
   get '/life_other', to: 'homes#life_other'
   get '/shopping', to: 'homes#shopping'
   get '/activities', to: 'homes#activities'
   get '/sightseeing', to: 'homes#sightseeing'
   get '/life_publication', to: 'homes#life_publication'
+=======
+  get '/shopping', to: 'homes#shopping'
+  get '/activities', to: 'homes#activities'
+  get '/sightseeing', to: 'homes#sightseeing'
+  get '/w2_publication', to: 'homes#w2_publication'
+>>>>>>> 41e9a9298b346e4dcb7c0acd5d4c00625ddf9d29
     # end
   # Membership dropdown navigation bar
   get '/new_member', to: 'homes#new_member' # New Memeber Info, Benefits, etc.
@@ -69,10 +80,11 @@ Rails.application.routes.draw do
 		collection {post :import}
 	end
 
-  resources :users do
-  collection {post :import}
-  end
-  get '/import', to: 'users#index'
+  # resources :users do
+  #   get :autocomplete_:recipients_:first_name,:last_name, :on => :collection
+  # end
+  # get '/import', to: 'users#index'
+  get '/autofill', to: 'users#index'
   # resources :messages
   # resources :conversations, only: [:index, :show, :destroy]
 
@@ -80,12 +92,12 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  # Mailbox Folder Routes
-  get "/mailbox/inbox" => "messages#inbox", as: :messages_inbox
-  get "/mailbox/sent" => "messages#sent", as: :messages_sent
-  get "/mailbox/trash" => "messages#trash", as: :messages_trash
+# mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
-  #Mailbox Conversations
+  # conversations
   resources :conversations do
     member do
       post :reply
@@ -94,5 +106,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :sessions
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
+
+
+
