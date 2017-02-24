@@ -1,11 +1,28 @@
 Rails.application.routes.draw do
   get '/', to: 'homes#index' # Home page
   get '/back', to: 'homes#index' # Back button option
-  post '/login', to: 'homes#login'
-  # Bangalore drop down navigation bar
+  # post '/login', to: 'homes#login'
+  # Bangalore dropdown navigation bar
   get '/moving_to', to: 'homes#moving_to'
-  get '/what_to_do', to: 'homes#what_to_do'
+  # Moving to Bangalore Links
+    # Start
+  get '/healthcare', to: 'homes#healthcare'
+  get '/schools', to: 'homes#schools'
+  get '/residency', to: 'homes#residency'
+  get '/accomodations', to: 'homes#accomodations'
+  get '/safe_environments', to: 'homes#safe_environments'
+  get '/transportation', to: 'homes#transportation'
+  get '/banking', to: 'homes#banking'
+  get '/pets', to: 'homes#pets'
+    # end
+  # Bangalore dropdown nav bar
   get '/life_in', to: 'homes#life_in'
+    # Start
+  get '/shopping', to: 'homes#shopping'
+  get '/activities', to: 'homes#activities'
+  get '/sightseeing', to: 'homes#sightseeing'
+  get '/w2_publication', to: 'homes#w2_publication'
+    # end
   # Membership dropdown navigation bar
   get '/member_info', to: 'homes#member_info'
   get '/new_member', to: 'homes#new_member' # New Memeber Info, Benefits, etc.
@@ -49,14 +66,13 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  # Mailbox Folder Routes
-  get "/mailbox/inbox" => "messages#inbox", as: :messages_inbox
-  get "/mailbox/sent" => "messages#sent", as: :messages_sent
-  get "/mailbox/trash" => "messages#trash", as: :messages_trash
+# mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
-  #Mailbox Conversations
+  # conversations
   resources :conversations do
-    get :autocomplete_recipients_name, :on => :collection
     member do
       post :reply
       post :trash
@@ -64,7 +80,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :sessions
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
+
+
+

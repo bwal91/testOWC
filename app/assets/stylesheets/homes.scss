@@ -5,34 +5,35 @@
   margin: auto;
   width: auto;
 }
-
 body, html {
     height: 100%;
     color: black;
 }
-
 #sponsor {
   margin-bottom: auto;
-
-
 }
 .red{
     color:red;
-    }
+}
 .form-area
 {
-    background-color: #97c53b;
-	padding: 10px 40px 60px;
-	margin: 10px 0px 60px;
-	border: 1px solid GREY;
-
-	}
+  background-color: #97c53b;
+    padding: 10px 40px 60px;
+    margin: 10px 0px 60px;
+    border: 1px solid GREY;
+    }
 .wrapper{
-  margin: auto;
-
+  min-height:100%;
+  position:relative;
 }
-.footer{
-  
+#header {
+   padding:10px;
+}
+#footer{
+  position: relative;
+  margin-top: -180px; /* negative value of footer height */
+  height: 75px;
+  clear: both;  /* Height of the footer */
   background-color: #efefef;
 }
 .container-fluid{
@@ -40,18 +41,28 @@ body, html {
 }
 .bot_dropdown {
   display: inline-block;
-
 }
-.sponsors {
+.sponsor {
   display: inline-block;
-
+  margin: auto;
+  padding:100px;
+  padding-bottom:75px;   /* Height of the footer */
 }
 .container-fluid{
   background-color: #97c53b;
   color: white;
-
 }
-
 #myCarousel{
   background-color: white;
+}
+.jumbotron{
+  padding:10px;
+  padding-bottom:75px;   /* Height of the footer */
+}
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;/* thank you Erik J - negate effect of float*/
 }

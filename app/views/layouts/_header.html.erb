@@ -1,16 +1,14 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="homes.scss">
+  <!-- <link rel="stylesheet" href="homes.scss"> -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>Bootstrap 101 Template</title>
-
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -36,8 +34,8 @@
                   aria-haspopup="true" aria-expanded="false">Bangalore <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="/moving_to">Moving to Bangalore</a></li>
-                    <li><a href="/what_to_do">What to do</a></li>
                     <li><a href="/life_in">Life in Bangalore</a></li>
+                    <li><a href="/what_to_do">What to do</a></li>                    
                   </ul>
                 </li>
                  <!-- Membership -->
@@ -83,7 +81,15 @@
                 <button type="submit" class="btn btn-default">Search</button>
               </form>
               <!-- Login -->
+              <% if current_user %>
+              <ul class="nav navbar-nav pull-right">
+              <li><%= link_to "Hello, #{current_user.first_name}", "#" %></li>
+              <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+              <li><a href="">Logout</a></li>
+              </ul>
+              <% else %>
               <button type="button" class="btn btn-default navbar-btn" action="/login">Login</button>
+              <% end %>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
