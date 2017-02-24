@@ -2,16 +2,48 @@ Rails.application.routes.draw do
   get '/', to: 'homes#index' # Home page
   get '/back', to: 'homes#index' # Back button option
   post '/login', to: 'homes#login'
-  # Bangalore drop down navigation bar
+  # Bangalore dropdown navigation bar
   get '/moving_to', to: 'homes#moving_to'
-  get '/what_to_do', to: 'homes#what_to_do'
+  # Moving to Bangalore Links
+    # Start
+  get '/healthcare', to: 'homes#healthcare'
+  get '/schools', to: 'homes#schools'
+  get '/residency', to: 'homes#residency'
+  get '/accomodations', to: 'homes#accomodations'
+  get '/safe_environments', to: 'homes#safe_environments'
+  get '/transportation', to: 'homes#transportation'
+  get '/banking', to: 'homes#banking'
+  get '/pets', to: 'homes#pets'
+    # end
+  # Bangalore dropdown nav bar
   get '/life_in', to: 'homes#life_in'
+    # Start
+  get '/pests', to: 'homes#pests'
+  get '/life_other', to: 'homes#life_other'
+  get '/shopping', to: 'homes#shopping'
+  get '/activities', to: 'homes#activities'
+  get '/sightseeing', to: 'homes#sightseeing'
+  get '/life_publication', to: 'homes#life_publication'
+    # end
   # Membership dropdown navigation bar
-  get '/member_info', to: 'homes#member_info'
   get '/new_member', to: 'homes#new_member' # New Memeber Info, Benefits, etc.
-  get '/renew', to: 'homes#renew' # Renew membership here
+    # Start
+  get '/member_info', to: 'homes#member_info'
+  get '/new_member_app', to: 'homes#new_member_app'
+  get '/payment_gateway', to: 'homes#payment_gateway'
+    # end
+  get '/renew_membership', to: 'homes#renew_membership' # Renew membership here
+  get '/renew_form', to: 'homes#renew_form'
+  # Membership dropdown nav bar
   get '/publication', to: 'homes#publication'
+    # Start
+  get '/member_magazine', to: 'homes#member_magazine'
+  get '/in_and_out', to: 'homes#in_and_out'
+  get '/greeting_cards', to: 'homes#greeting_cards'
+    # End
+  # Membership dropdown nav bar 
   get '/volunteer', to: 'homes#volunteer'
+  get '/public_calendar', to: 'homes#public_calendar'
   # Our Work dropdown navigation bar
   # get '/charities', to: 'homes#charities'
   get '/contributions', to: 'homes#contributions'
