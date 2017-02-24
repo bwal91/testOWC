@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/', to: 'homes#index' # Home page
   get '/back', to: 'homes#index' # Back button option
-  # post '/login', to: 'homes#login'
+
   # Bangalore dropdown navigation bar
   get '/moving_to', to: 'homes#moving_to'
   # Moving to Bangalore Links
