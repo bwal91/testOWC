@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
 	acts_as_messageable
 
@@ -18,17 +22,7 @@ class User < ApplicationRecord
 		self[:first_name]+" "+self[:last_name]
 	end
 	
-	# def self.search(term)
-	# 	params[:term].downcase!
-	# 	where("lower(first_name) LIKE '#{:term}' or lower(last_name) LIKE '#{:term}'")
-	# end
-	# def recipients
-	# 	recipient.try(:name)
-	# end
 
-	# def recipients=(term)
-	# 	self.recipient = User.where("lower(first_name) LIKE '#{:term}' or lower(last_name) LIKE '#{:term}'")
-	# end
 
 
 	# require 'csv'

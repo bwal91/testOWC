@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 	helper_method :mailbox
 	helper_method :conversation
 	helper_method :current_user
-  	before_filter :require_login, :unless => :logged_in?
+  	# before_filter :require_login, :unless => :logged_in?
+  	before_action :configure_permitted_parameters, if: :devise_controller?
 
 	def current_user
 		@current_user = User.find(75)
@@ -14,6 +15,13 @@ class ApplicationController < ActionController::Base
 	def authorize
 		redirect_to '/' unless current_user
 	end
+
+	protected
+
+	def configure_permitted_parameters
+  		devise_parameter_sanitizer.permit(:sign_in) do |user_params|
+    	user_params.permit(:email, :password)
+  	end
 
 	private
 
