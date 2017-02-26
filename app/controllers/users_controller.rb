@@ -22,6 +22,9 @@ class UsersController < ApplicationController
   	end
   end
 
+  def register
+
+  end
 
 
 
@@ -33,6 +36,7 @@ class UsersController < ApplicationController
   private
 
   def allowed_params
-  	params.require(:user).permit(:first_name, :last_name, :email, :status, :memb, :password_digest, :password_confirmation, :nationality, :emailers, :dob, :language, :gender, :join_date, :admin, :member)
+  	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
+
 end

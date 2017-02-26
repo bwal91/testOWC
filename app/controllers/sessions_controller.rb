@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 			redirect_to '/'
 		else
 			flash[:error] = "Email or Password are Invalid"
-			render :back
+			redirect_to :back
 		end
 	end
 

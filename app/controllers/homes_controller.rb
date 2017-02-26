@@ -1,10 +1,11 @@
 class HomesController < ApplicationController
   # Home Page
+  before_action :require_login, except: :login
   def index
-    @me = User.find(75)
-    session[:user_id] = @me.id
+
   end
   def login
+    
   end
   # Bangalore dropdown bar
   def moving_to

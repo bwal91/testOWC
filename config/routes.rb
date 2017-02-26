@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'homes#index' # Home page
+  devise_for :users, skip: [:sessions]
+  get '/', to: 'homes#index'
+  post '/login_user', to: 'sessions#create'
+  # post '/login_user', to: 'sessions#create'
+  get '/login', to: 'homes#login' # Home page
   get '/back', to: 'homes#index' # Back button option
   # Bangalore dropdown navigation bar
   get '/moving_to', to: 'homes#moving_to'
@@ -100,8 +103,8 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  # get 'login', to: 'sessions#new', as: 'login'
+  get '/logout', to: 'sessions#destroy'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

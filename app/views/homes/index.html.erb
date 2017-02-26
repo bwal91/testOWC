@@ -90,7 +90,7 @@
                   <ul class="nav navbar-nav pull-right">
                     <li><%= link_to "Hello, #{current_user.first_name}", "#" %></li>
                     <li><%= link_to "Inbox", mailbox_inbox_path %></li>
-                    <li><a href="">Logout</a></li>
+                    <li><a href="/logout">Logout</a></li>
                   </ul>
                   <% else %>
                   <button type="button" class="btn btn-default navbar-btn" action="/login">Login</button>
