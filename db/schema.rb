@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170226231645) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "Payments", force: :cascade do |t|
     t.string   "date_payment"
     t.string   "date_treasury"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20170226231645) do
     t.string  "unsubscriber_type"
     t.integer "unsubscriber_id"
     t.integer "conversation_id"
-    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
-    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
+    t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
+    t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
   end
 
   create_table "mailboxer_conversations", force: :cascade do |t|
@@ -60,10 +63,10 @@ ActiveRecord::Schema.define(version: 20170226231645) do
     t.datetime "created_at",                           null: false
     t.boolean  "global",               default: false
     t.datetime "expires"
-    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
-    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
-    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
-    t.index ["type"], name: "index_mailboxer_notifications_on_type"
+    t.index ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
+    t.index ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
+    t.index ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
+    t.index ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
   end
 
   create_table "mailboxer_receipts", force: :cascade do |t|
@@ -79,8 +82,8 @@ ActiveRecord::Schema.define(version: 20170226231645) do
     t.boolean  "is_delivered",               default: false
     t.string   "delivery_method"
     t.string   "message_id"
-    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
-    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
+    t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
+    t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

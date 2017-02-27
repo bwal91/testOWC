@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: [:sessions]
   get '/', to: 'homes#index'
   post '/login_user', to: 'sessions#create'
   # post '/login_user', to: 'sessions#create'
