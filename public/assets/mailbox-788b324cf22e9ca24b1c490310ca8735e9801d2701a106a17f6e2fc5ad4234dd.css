@@ -1,0 +1,22 @@
+/* line 1, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/mailbox.scss */
+.btn-success {
+  margin-left: 20px;
+  padding: 0px;
+}
+
+/* line 16, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/mailbox.scss */
+#message_pic {
+  max-height: 64px;
+  max-width: 64px;
+}
+
+/* line 21, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/mailbox.scss */
+.spacer {
+  margin-top: 20px;
+}
+
+/* line 25, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/mailbox.scss */
+#message_box {
+  overflow: auto;
+  max-height: 500px;
+}
