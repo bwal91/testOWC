@@ -1,0 +1,166 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+/* Toggle Styles */
+/* line 10, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* line 18, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+/* line 22, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#sidebar-wrapper {
+  z-index: 0;
+  position: fixed;
+  left: 250px;
+  width: 250;
+  height: 500px;
+  margin-left: -140px;
+  overflow-y: auto;
+  background: #97c53b;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+}
+
+/* line 38, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+/* line 42, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+/* line 48, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+/* Sidebar Styles */
+/* line 55, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 64, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav > li {
+  text-indent: 20px;
+  line-height: 40px;
+  font-size: 20px;
+  color: white;
+}
+
+/* line 72, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav > li > a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+/* line 78, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav > li > a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* line 84, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav > li > a:active,
+.sidebar-nav > li > a:focus {
+  text-decoration: none;
+}
+
+/* line 89, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav > .sidebar-brand {
+  height: 45px;
+  font-size: 22px;
+  line-height: 55px;
+}
+
+/* line 99, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+.sidebar-nav > .sidebar-brand > a:hover {
+  color: #fff;
+  background: none;
+}
+
+/* line 103, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#container {
+  width: 1080px;
+  border: 25px;
+  padding: 25px;
+  margin: 25px;
+  text-align: justify;
+}
+
+/* line 110, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#message_pic {
+  height: 50px;
+  width: 70px;
+}
+
+@media (min-width: 979px) {
+  /* line 115, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+  #sidebar.affix-top {
+    position: static;
+    margin-top: 30px;
+    width: 228px;
+  }
+
+  /* line 121, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+  #sidebar.affix {
+    position: fixed;
+    top: 70px;
+    width: 228px;
+  }
+}
+/* line 128, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#sidebar li.active {
+  border: 0 #eee solid;
+  border-right-width: 4px;
+}
+
+/* line 133, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#sidebar li li.active {
+  border: 0 #ccc solid;
+  border-right-width: 3px;
+}
+
+/* line 137, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#mainCol {
+  width: 800px;
+  height: 500px;
+  overflow-y: auto;
+  margin-top: 30px;
+  border: 1px solid black;
+}
+
+/* line 144, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#mainCol h2 {
+  padding-top: 55px;
+  margin-top: -55px;
+}
+
+/* line 149, /Users/Brandon/Desktop/CodingDojo/Ruby/OWCBangalore/app/assets/stylesheets/simple-sidebar.scss */
+#sidebar {
+  border: 1px solid black;
+  margin-top: 70px;
+  height: 300;
+}
