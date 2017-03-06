@@ -42,7 +42,7 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 
 gem 'haml-rails'
-gem 'simple_form'
+# gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'mailboxer'
 gem 'jquery-ui-rails'
