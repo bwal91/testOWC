@@ -1,14 +1,33 @@
-<!-- school, healthcare, pets, domestic help -->
-<%= render partial: 'layouts/header' %>
-<%= render partial: 'layouts/m2_sidebar' %>
-  <div id="container">
-    <div class="jumbotron">
-      <h1>Moving to Bangalore</h1>
-      <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-      responsive, mobile-first projects on the web.</p>
-    </div>
-    <p>This is some text.</p>
-    <p>This is another text.</p>
-  </div>
-</div>
-<%= render partial: 'layouts/footer' %>
+<%= content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'info', media: 'all', 'data-turbolinks-track': 'reload'  %>
+<% end %>
+		<div id="wrapper">
+			<div id="sidebar-wrapper" class="col-sm-2">
+		        <ul id="sidebar" class="nav nav-stacked affix">
+			        <li><a href="#"><i class="fa fa-fw fa-home"></i> Home</a></li>
+			        <li><%= link_to accomodations_path, :remote => true do %><span>Accomodations</span><% end %></li>
+			        <li><%= link_to banking_path, :remote => true do %><span>Banking</span><% end %></li>
+		          	<li><%= link_to healthcare_path, :remote => true do %><span>Healthcare</span><% end %></li>
+		          	<li><%= link_to pets_path, :remote => true do %><span>Pets</span><% end %></li>
+		          	<li><%= link_to residency_path, :remote => true do %><span>Residency</span><% end %></li>
+		          	<li><%= link_to safe_environments_path, :remote => true do %><span>Safe Environments</span><% end %></li>
+		          	<li><%= link_to schools_path, :remote => true do %><span>International Schools</span><% end %></li>
+		          	<li><%= link_to transportation_path, :remote => true do %><span>Transportation</span><% end %></li>
+		          	<li><%= link_to life_in_path, :remote => true do %><span>Life in Bangalore</span><% end %></li>
+			    </ul>
+			</div>
+			<div id="main-wrapper"  class="col-md-10 pull-right">
+				<div id="main">
+					<div class="slide-1"></div>
+			          <div class="hero">
+			            <hgroup>
+			                <h1>Welcome to</h1>
+			                <h3>Bangalore</h3>
+			            </hgroup>
+			          </div>
+
+
+				</div>
+			</div>
+
+		</div>

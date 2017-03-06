@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
 
   def index
-  	@user = User.order(:first_name).where("lower(first_name) LIKE '#{:term}' or lower(last_name) LIKE '#{:term}'")
-  	render json: @users.map(&:name)
+    @users = User.all
   end
 
   # def import
@@ -22,8 +22,16 @@ class UsersController < ApplicationController
   	end
   end
 
-  def register
+  def show 
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to :back, :alert => "Access denied."
+    end
+  end
 
+
+  def profile
+    
   end
 
 
@@ -36,7 +44,6 @@ class UsersController < ApplicationController
   private
 
   def allowed_params
-  	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  	params.require(:user).permit(:first_name, :last_name, :email, :status, :memb, :password_digest, :password_confirmation, :nationality, :emailers, :dob, :language, :gender, :join_date, :admin, :member)
   end
-
 end

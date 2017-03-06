@@ -1,11 +1,10 @@
 class HomesController < ApplicationController
+  load_and_authorize_resource
+  before_action :authenticate_user!, :only => [:public_calendar, :board_members]
   # Home Page
-  before_action :require_login, except: :login
   def index
-
   end
   def login
-    
   end
   # Bangalore dropdown bar
   def moving_to
@@ -14,28 +13,44 @@ class HomesController < ApplicationController
   # Moving to Bangalore links
     # start
   def healthcare
-    render :template => "homes/bangalore/m2/healthcare"
+    respond_to do |format|
+        format.js
+    end
   end
   def schools
-    render :template => "homes/bangalore/m2/schools"
+    respond_to do |format|
+        format.js
+    end
   end
   def residency
-    render :template => "homes/bangalore/m2/residency"
+    respond_to do |format|
+        format.js
+    end
   end
   def accomodations
-    render :template => "homes/bangalore/m2/accomodations"
+    respond_to do |format|
+        format.js
+    end
   end
   def safe_environments
-    render :template => "homes/bangalore/m2/safe_environments"
+    respond_to do |format|
+        format.js
+    end
   end
   def transportation
-    render :template => "homes/bangalore/m2/transportation"
+    respond_to do |format|
+        format.js
+    end
   end
   def banking
-    render :template => "homes/bangalore/m2/banking"
+    respond_to do |format|
+        format.js
+    end
   end
   def pets
-    render :template => "homes/bangalore/m2/pets"
+    respond_to do |format|
+        format.js
+    end
   end
     # end
   # Bangalore dropdown
@@ -44,23 +59,35 @@ class HomesController < ApplicationController
   end
   # life links
     # start
+  def festivals
+    respond_to do |format|
+        format.js
+    end
+  end
   def pests
-    render :template => "homes/bangalore/life/pests"
+    respond_to do |format|
+        format.js
+    end
   end
   def life_other
-    render :template => "homes/bangalore/life/life_other"
+    respond_to do |format|
+        format.js
+    end
   end
   def shopping
-    render :template => "homes/bangalore/life/shopping"
+    respond_to do |format|
+        format.js
+    end
   end
   def activities
-    render :template => "homes/bangalore/life/activities"
-  end
-  def sightseeing
-    render :template => "homes/bangalore/life/sightseeing"
+    respond_to do |format|
+        format.js
+    end
   end
   def life_publication
-    render :template => "homes/bangalore/life/life_publication"
+    respond_to do |format|
+        format.js
+    end
   end
     # end
   # Membership dropdown navigation bar
@@ -69,13 +96,19 @@ class HomesController < ApplicationController
   end
     # Start
   def member_info
-    render :template => "homes/membership/newMem/member_info"
+    respond_to do |format|
+        format.js
+    end
   end
   def new_member_app
-    render :template => "homes/membership/newMem/new_member_app"
+    respond_to do |format|
+        format.js
+    end
   end
-  def payment_gateway
-    render :template => "homes/membership/payment_gateway"
+  def benefits
+    respond_to do |format|
+        format.js
+    end
   end
     # end
   # Membership dropdown nav bar
@@ -83,7 +116,9 @@ class HomesController < ApplicationController
     render :template => "homes/membership/renew_membership"
   end
   def renew_form
-    render :template => "homes/membership/renew/renew_form"
+    respond_to do |format|
+        format.js
+    end
   end
   # Membership dropdown nav bar
   def publication
@@ -91,37 +126,107 @@ class HomesController < ApplicationController
   end
     # Start
   def member_magazine
+    respond_to do |format|
+        format.js
+    end
   end
   def in_and_out
+    respond_to do |format|
+        format.js
+    end
   end
   def greeting_cards
+    respond_to do |format|
+        format.js
+    end
+  end
+  def other_publication
+    respond_to do |format|
+        format.js
+    end
   end
     # End
+  def public_calendar
+    render :template => "homes/membership/public_calendar"
+  end
   # Memebership dropdown nav bar
   def volunteer
     render :template => "homes/membership/volunteer"
   end
-  def public_calendar
-    render :template => "homes/membership/public_calendar"
-  end
     # Start
-  def job_open
+  def job_openings
+    respond_to do |format|
+        format.js
+    end
   end
-  def volunteer_app
+  def volunteer_form
+    respond_to do |format|
+        format.js
+    end
   end
     # End
   # Our Work dropdown navigation bar
   def charities
     render :template => "homes/ourWork/charities"
   end
+    # Start
+  def charities_list
+    respond_to do |format|
+        format.js
+    end
+  end
+  def charity_map
+    respond_to do |format|
+        format.js
+    end
+  end
+    # end
+  # Our Work dropdown navigation bar
   def contributions
     render :template => "homes/ourWork/contributions"
   end
+  def report2016
+    respond_to do |format|
+        format.js
+    end
+  end
+  def report2017
+    respond_to do |format|
+        format.js
+    end
+  end
+  def contribution_reports
+    respond_to do |format|
+        format.js
+    end
+  end
+  # Our Work dropdown navigation bar
   def fundraising
     render :template => "homes/ourWork/fundraising"
   end
+  def fundraising_news
+    respond_to do |format|
+        format.js
+    end
+  end
+  def fundraising_reports
+    respond_to do |format|
+        format.js
+    end
+  end
+  # Our Work dropdown navigation bar
   def ssg # Social Support Group
     render :template => "homes/ourWork/ssg"
+  end
+  def ssg_news
+    respond_to do |format|
+        format.js
+    end
+  end
+  def ssg_stories
+    respond_to do |format|
+        format.js
+    end
   end
   # About options on bottom of pages
   def owc_club_info
@@ -142,5 +247,7 @@ class HomesController < ApplicationController
   end
   def trustee
     render :template => "homes/contactUs/trustee"
+  end
+  def board_members
   end
 end

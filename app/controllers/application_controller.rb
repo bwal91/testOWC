@@ -1,41 +1,28 @@
 class ApplicationController < ActionController::Base
+	include CanCan::ControllerAdditions
+	include LoadAndAuthorizeResource
+	
 	protect_from_forgery with: :exception
-	helper_method :mailbox
-	helper_method :conversation
-  	# before_filter :require_login, :unless => :logged_in?
-  	# before_action :configure_permitted_parameters, if: :devise_controller?
 
-	def current_user
-		# @current_user = User.find(session[:user_id])
-		@current_user ||= User.find(session[:user_id]) if session[:user_id]
-	end
+	before_action :authenticate_user!
+	helper_method :mailbox, :conversation
 	helper_method :current_user
-		
+	
+	before_action :configure_permitted_parameters, if: :devise_controller?
+	
+	rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_path, :alert => exception.message
 
-	def authorize
-		redirect_to '/login' unless current_user
+
+  	end
+	
+	def after_sign_in_path_for(resource)
+	    :root
 	end
 
-	# protected
-
-	# def configure_permitted_parameters
- #  		devise_parameter_sanitizer.permit(:sign_in) do |user_params|
- #    	user_params.permit(:email, :password)
- #  	end
-  # end
 
 	private
 
-	def logged_in?
-    	@current_user ||= User.find(session[:user_id]) if session[:user_id]
-  	end
-
-	def require_login
-		unless logged_in?
-			flash[:notice] = "You must be logged in to continue!"
-			redirect_to '/login'
-		end
-  	end
 
   	def mailbox
   		@mailbox ||= current_user.mailbox
@@ -45,4 +32,13 @@ class ApplicationController < ActionController::Base
     	@conversation ||= mailbox.conversations.find(params[:id])
   	end
 
+	protected
+
+
+	def configure_permitted_parameters
+		update_attrs = [:password, :password_confirmation, :current_password]
+		added_attrs = [:email, :password, :password_confirmation, :remember_me]
+		devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+		devise_parameter_sanitizer.permit(:account_update, keys: update_attrs)
+	end
 end
